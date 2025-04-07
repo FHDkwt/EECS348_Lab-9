@@ -5,6 +5,7 @@
 #include <vector>
 #include <iostream>
 #include <iomanip>
+#include <stdexcept> // For std::out_of_range
 
 // Template class definition for Matrix
 template <typename T>
@@ -55,10 +56,10 @@ public:
 
     // Function to get value at specified position
     T get_value(std::size_t i, std::size_t j) const {
-        if (i < size && j < size) {
-            return data[i][j];
+        if (i >= size || j >= size) {
+            throw std::out_of_range("Index out of bounds");
         }
-        return 0; // Return 0 if indices are out of bounds
+        return data[i][j];
     }
 
     // Function to get matrix size
