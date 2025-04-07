@@ -6,20 +6,21 @@
 #include <iostream>
 #include <iomanip>
 
-// Class definition for Matrix
+// Template class definition for Matrix
+template <typename T>
 class Matrix {
 private:
-    std::vector<std::vector<int>> data; // 2D vector to store matrix elements
-    std::size_t size;                   // Size of the N x N matrix
+    std::vector<std::vector<T>> data; // 2D vector to store matrix elements
+    std::size_t size;                 // Size of the N x N matrix
 
 public:
     // Constructor: Initializes an N x N matrix with zeros
     Matrix(std::size_t N) : size(N) {
-        data.resize(N, std::vector<int>(N, 0));
+        data.resize(N, std::vector<T>(N, 0));
     }
 
     // Constructor: Initializes matrix with given 2D vector
-    Matrix(std::vector<std::vector<int>> nums) : data(nums), size(nums.size()) {}
+    Matrix(std::vector<std::vector<T>> nums) : data(nums), size(nums.size()) {}
 
     // Addition operator overloading for matrix addition
     Matrix operator+(const Matrix &rhs) const {
@@ -46,14 +47,14 @@ public:
     }
 
     // Function to set value at specified position
-    void set_value(std::size_t i, std::size_t j, int n) {
+    void set_value(std::size_t i, std::size_t j, T n) {
         if (i < size && j < size) {
             data[i][j] = n;
         }
     }
 
     // Function to get value at specified position
-    int get_value(std::size_t i, std::size_t j) const {
+    T get_value(std::size_t i, std::size_t j) const {
         if (i < size && j < size) {
             return data[i][j];
         }
@@ -61,13 +62,13 @@ public:
     }
 
     // Function to get matrix size
-    int get_size() const {
+    std::size_t get_size() const {
         return size;
     }
 
     // Function to calculate sum of main diagonal elements
-    int sum_diagonal_major() const {
-        int sum = 0;
+    T sum_diagonal_major() const {
+        T sum = 0;
         for (std::size_t i = 0; i < size; i++) {
             sum += data[i][i];
         }
@@ -75,8 +76,8 @@ public:
     }
 
     // Function to calculate sum of secondary diagonal elements
-    int sum_diagonal_minor() const {
-        int sum = 0;
+    T sum_diagonal_minor() const {
+        T sum = 0;
         for (std::size_t i = 0; i < size; i++) {
             sum += data[i][size - 1 - i];
         }
