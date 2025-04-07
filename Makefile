@@ -1,4 +1,4 @@
-# Compiler to use 
+# Compiler g++
 CC = g++
 
 # Compiler flags: -Wall for warnings, -g for debugging info
@@ -19,11 +19,4 @@ main.o: main.cpp matrix.hpp
 $(CC) $(CFLAGS) -c main.cpp
 
 # Compile matrix.cpp into matrix.o
-matrix.o: matrix.cpp matrix.hpp
-$(CC) $(CFLAGS) -c matrix.cpp
-
-# Clean up object files and executable
-clean:
-rm -f *.o $(TARGET)
-
-# Phony targets to avoid conflicts with file names
+matrix.o
