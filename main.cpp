@@ -19,7 +19,7 @@ int main(int argc, char *argv[]) {
     file >> n >> type;
 
     if (type == 0) {
-        Matrix m1(n), m2(n);
+        Matrix<int> m1(n), m2(n);
         for (std::size_t i = 0; i < n; i++) {
             for (std::size_t j = 0; j < n; j++) {
                 int value;
@@ -40,11 +40,11 @@ int main(int argc, char *argv[]) {
         std::cout << "Matrix 2:\n";
         m2.print_matrix();
 
-        Matrix sum = m1 + m2;
+        Matrix<int> sum = m1 + m2;
         std::cout << "Sum of matrices:\n";
         sum.print_matrix();
 
-        Matrix product = m1 * m2;
+        Matrix<int> product = m1 * m2;
         std::cout << "Product of matrices:\n";
         product.print_matrix();
 
@@ -63,7 +63,7 @@ int main(int argc, char *argv[]) {
         std::cout << "Matrix 1 after updating element (0,0) to 99:\n";
         m1.print_matrix();
     } else if (type == 1) {
-        Matrix m1(n), m2(n);
+        Matrix<double> m1(n), m2(n);
         for (std::size_t i = 0; i < n; i++) {
             for (std::size_t j = 0; j < n; j++) {
                 double value;
@@ -84,11 +84,11 @@ int main(int argc, char *argv[]) {
         std::cout << "Matrix 2:\n";
         m2.print_matrix();
 
-        Matrix sum = m1 + m2;
+        Matrix<double> sum = m1 + m2;
         std::cout << "Sum of matrices:\n";
         sum.print_matrix();
 
-        Matrix product = m1 * m2;
+        Matrix<double> product = m1 * m2;
         std::cout << "Product of matrices:\n";
         product.print_matrix();
 
